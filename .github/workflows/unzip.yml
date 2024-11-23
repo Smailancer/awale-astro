@@ -7,8 +7,18 @@ jobs:
   unzip:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository content
-      uses: actions/checkout@v3
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Unzip File
-      run: unzip </awale-astro/tree/main/sb1-4fzaat (1).zip> -d </awale-astro/tree/main>
+      # Step 2: Rename the ZIP file to avoid special characters
+      - name: Rename ZIP file
+        run: mv sb1-4fzaat\ \(1\).zip sb1-4fzaat.zip
+
+      # Step 3: Unzip the file
+      - name: Unzip File
+        run: unzip sb1-4fzaat.zip -d unzipped_files
+
+      # Step 4: Verify unzipped files (Optional)
+      - name: List unzipped files
+        run: ls -R unzipped_files
