@@ -1,0 +1,14 @@
+name: Unzip File
+
+on:
+  workflow_dispatch:
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository content
+      uses: actions/checkout@v3
+
+    - name: Unzip File
+      run: unzip </awale-astro/tree/main/sb1-4fzaat (1).zip> -d </awale-astro/tree/main>
